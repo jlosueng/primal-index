@@ -1,0 +1,21 @@
+<template name="questions">
+    <h1>Primal Index</h1>
+    <h2>Please complete the questionnaire below to find out how paleo/primal you are.</h2>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+        <form name="question-form">
+        <ol>
+            {{#each questions}}
+                <li>{{question}}</li>
+                {{#each answers}}
+                    <input type="radio" name="{{questionID}}" value={{score}} data-answer="{{answer}}">{{answer}}
+                {{/each}}
+            {{/each}}
+        </ol>
+        <btn class="btn btn-primary" id="submit">Submit</btn>
+        </form>
+        </div>
+    </div>
+</template>

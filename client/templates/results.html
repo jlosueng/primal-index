@@ -1,0 +1,21 @@
+<template name="results">
+    <div class="resultContainer">
+        <h1>Your Primal Index Score Is</h1>
+        <h2>{{primalIndex}}</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Please complete the form below if you would like to receive an email with your results.</h4>
+            <div id="resultsForm">
+                <form role="results" name="resultsForm">
+                    <input type="text" id="formName" name="name" placeholder="First Name">
+                    <input type="email" id="formEmail" name="email" placeholder="Email Address">
+                    <input type="email" id="formEmail2" name="email2" placeholder="Confirm Email Address">
+                    <input type="checkbox" id="formCheckbox" name="confirmation">I would like to receive updates regarding living a Paleo lifestyle.
+                    <button class="btn btn-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</template>

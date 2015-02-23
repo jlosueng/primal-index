@@ -1,0 +1,59 @@
+h1, h2, h3 {
+    margin: 10px;
+}
+
+body {
+    height: 100%;
+}
+
+.container {
+    min-height: 100%;
+    margin: 0 auto -75px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+ol li {
+    padding-top: 15px;
+    font-weight: 600;
+}
+.homePageInfo {
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: justify;
+}
+footer {
+    left: 0;
+    bottom: 0;
+    width: 90%;
+    height: 75px;
+    position: absolute;
+}
+
+#startBtn {
+    padding: 50px;
+    font-size: 24px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    margin-top: 50px;
+}
+
+#startBtnDiv {
+    text-align: center;
+}
+
+#resultsForm form input[type="text"] {
+    display: block;
+    margin: 5px 0px;
+}
+#resultsForm form input[type="email"] {
+    display: block;
+    margin: 5px 0;
+}
+#resultsForm form button {
+    display: block;
+    margin: 5px 0;
+}
