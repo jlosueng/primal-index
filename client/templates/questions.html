@@ -10,11 +10,11 @@
             {{#each questions}}
                 <li>{{question}}</li>
                 {{#each answers}}
-                    <input type="radio" name="{{questionID}}" value={{score}} data-answer="{{answer}}">{{answer}}
+                    <input type="radio" name="{{../_id}}" value={{score}} data-answer="{{answer}}">{{answer}}
                 {{/each}}
             {{/each}}
         </ol>
-        <btn class="btn btn-primary" id="submit">Submit</btn>
+        <button class="btn btn-primary" id="submit">Submit</button>
         </form>
         </div>
     </div>
