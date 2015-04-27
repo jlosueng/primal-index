@@ -65,20 +65,51 @@ Template.results.events (
     check(email, String)
     check(email2, String)
 
-    if (email != email2)
-      alert("Emails don't match")
-    checkboxChecked = $('#formCheckbox').is(':checked')
-    e.preventDefault()
-
-    if (checkboxChecked)
-      opt_in = true
+    if (name.length == 0)
+      sweetAlert("Please enter your first name")
+      $('#formName').addClass("error")
+      error = true
     else
-      opt_in = false
+      $('#formName').removeClass("error")
 
-    Meteor.call('sendResults', email, name, scores, answers, primalIndex, opt_in)
-    #  Meteor.call('validateEmail', email, name)
 
-    Router.go('thankYou')
+    emailPat = new RegExp("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$")
+    if (!emailPat.test(email.toUpperCase()))
+      sweetAlert("Email address isn\'t in the proper format")
+      $('#formEmail').addClass("error")
+      error = true
+    else if (email == email2)
+      $('#formEmail').removeClass("error")
+
+    if (!emailPat.test(email2.toUpperCase()))
+      sweetAlert("Email address isn\'t in the proper format")
+      $('#formEmail2').addClass("error")
+      error = true
+    else if (email == email2)
+      $('#formEmail2').removeClass("error")
+
+
+    if (email != email2)
+      sweetAlert("Emails don't match")
+      $('#formEmail').addClass("error")
+      $('#formEmail2').addClass("error")
+      error = true
+
+    if error
+      Session.set('primalIndex', primalIndex)
+      Router.go('results')
+    else
+      checkboxChecked = $('#formCheckbox').is(':checked')
+      e.preventDefault()
+
+      if (checkboxChecked)
+        opt_in = true
+      else
+        opt_in = false
+
+      Meteor.call('sendResults', email, name, scores, answers, primalIndex, opt_in)
+      #  Meteor.call('validateEmail', email, name)
+      Router.go('thankYou')
 )
 
 
