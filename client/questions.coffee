@@ -66,7 +66,6 @@ Template.results.events (
     check(email2, String)
 
     if (name.length == 0)
-      sweetAlert("Please enter your first name")
       $('#formName').addClass("error")
       error = true
     else
@@ -75,29 +74,30 @@ Template.results.events (
 
     emailPat = new RegExp("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$")
     if (!emailPat.test(email.toUpperCase()))
-      sweetAlert("Email address isn\'t in the proper format")
       $('#formEmail').addClass("error")
       error = true
-    else if (email == email2)
+    else
       $('#formEmail').removeClass("error")
 
     if (!emailPat.test(email2.toUpperCase()))
-      sweetAlert("Email address isn\'t in the proper format")
       $('#formEmail2').addClass("error")
       error = true
-    else if (email == email2)
+    else
       $('#formEmail2').removeClass("error")
 
 
     if (email != email2)
-      sweetAlert("Emails don't match")
       $('#formEmail').addClass("error")
       $('#formEmail2').addClass("error")
       error = true
+    else
+      $('#formEmail').removeClass("error")
+      $('#formEmail2').removeClass("error")
+
 
     if error
       Session.set('primalIndex', primalIndex)
-      Router.go('results')
+      return false
     else
       checkboxChecked = $('#formCheckbox').is(':checked')
       e.preventDefault()
