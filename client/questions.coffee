@@ -94,6 +94,13 @@ Template.results.events (
       $('#formEmail').removeClass("error")
       $('#formEmail2').removeClass("error")
 
+    if (email == "")
+      $('#formEmail').addClass("error")
+      error = true
+
+    if (email2 == "")
+      $('#formEmail2').addClass("error")
+      error = true
 
     if error
       Session.set('primalIndex', primalIndex)
@@ -107,9 +114,10 @@ Template.results.events (
       else
         opt_in = false
 
-      Meteor.call('sendResults', email, name, scores, answers, primalIndex, opt_in)
-      #  Meteor.call('validateEmail', email, name)
-      Router.go('thankYou')
+      if (primalIndex)
+        Meteor.call('sendResults', email, name, scores, answers, primalIndex, opt_in)
+        #  Meteor.call('validateEmail', email, name)
+        Router.go('thankYou')
 )
 
 

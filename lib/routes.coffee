@@ -14,7 +14,6 @@ Router.onBeforeAction('loading')
 Router.route('/',  'home_page')
 
 Router.route('register')
-Router.route('about')
 Router.route('questions')
 Router.route('results')
 Router.route('thankYou')
